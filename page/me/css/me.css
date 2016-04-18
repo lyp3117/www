@@ -1,0 +1,126 @@
+﻿*{margin:0;padding:0}
+.head_print{width:100%;height:150px;background:#CCC;}
+.headimg {
+	width: 100%;
+	height: 150px;
+	z-index: -999;
+}
+.marginTop{
+	margin-top: 23px;
+}
+.top {
+	position:relative;top:-35px;left:5%
+}
+.pane {
+	background-color: rgb(249,249,249);
+}
+.headpic {
+	width: 84px;
+	height: 84px;
+	margin-top: -26px;
+	margin-left: 0px;
+	background-repeat:round;
+	border-radius:50%;
+}
+.username {
+	font-size: 25px;
+	font-weight: bold;
+	margin-top: -65px;
+	margin-left: 100px;
+	color: white;
+}
+.list {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	margin-top:15px
+}
+.item2{margin-bottom:-5px;-moz-box-shadow:1px 1px 3px #D9D9D9; -webkit-box-shadow:1px 1px 3px #D9D9D9; box-shadow:1px 1px 3px #D9D9D9;}
+.item2 h2{font-size:18px;margin-top:3px;color:#000}
+
+#myclip {
+	height: 35px;
+	top: 10px;
+	background-color: #0DC2E8;
+	color: white;
+	border-radius: 5px;
+}
+#mysever {
+	height: 35px;
+	top: 10px;
+	background-color: #10C100;
+	color: white;
+	border-radius: 5px;
+}
+#myinfo {
+	height: 30px;
+	top: 14px;
+	color: white;
+	background-color: #DA0606;
+	font-size: 40px;
+	border-radius: 5px;
+}
+#myaddress {
+	height: 35px;
+	top: 10px;
+	color: white;
+	background-color: #DE6C2C;
+	border-radius: 5px;
+}
+#U {
+	height: 35px;
+	top: 10px;
+	color: white;
+	background-color: #E8AB46;
+	border-radius: 5px;
+}
+.myclipul {
+	margin-left: -7%;
+	margin-top: 5%;
+	text-align: center;
+}
+.myclipul i {
+	color: #CCCBCB;
+	font-size: 45px;
+}
+
+.myclipul p{
+	color: #000000;
+}
+.mysever{
+	text-align: center;
+	margin-top: 5%;
+	    margin-left: -7%;
+}
+.mysever i {
+	color: #CCCBCB;
+	font-size: 45px;
+}
+.mysever p{
+	color: #000000;
+}
+.list h2 span
+{
+	color:rgb(130,130,130);float:right;font-size:14px;
+}
+
+/*圆圈*/
+.yuanquan,.yuanquanR{
+	position: relative;
+}
+.yuanquan span,.yuanquanR span{
+	display: block;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	right: 15%;
+	top:4%;
+	background: red;
+	opacity: 0.7;
+	color: #fff;
+}
+.yuanquanR span{
+	right: 30%;
+}
+#sayGreating{width:30%;height:30px;position:relative;left:75%;top:-160px;font-size:18px;color:#f0f0f0}

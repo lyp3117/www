@@ -1,0 +1,37 @@
+<div class="bar header" style="background-color: #ff3000">
+    <a href="#/page/me/addressAdm " class="button button-clear icon ion-chevron-left button-light"></a>
+    <h2 class="title light">添加新地址</h2>
+</div>
+<ion-view  hide-tabs="true"  >
+    <form class="form_content" ng-controller="newaddress"  name="login_form"  ng-submit="saves()" novalidate>
+    <ion-content  style="top:30px;" class="stable-bg ">
+        <ion-list >
+
+
+            <ion-item class="item-icon-right">
+                <h2  >{{AreaName}}</h2>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right">
+                <input type="text" name="Address"maxlength="70"   ng-model="Addre.Address" placeholder="请输入详细地址"required/>
+                <!--<span ng-show="login_form.Address.$error.required"style="color:red;" aria-hidden="false">*必填项</span>-->
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right">
+                <input type="text" ng-model="Addre.Linkman"maxlength="10" placeholder="请输入收货人姓名"/>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right">
+                <input type="tel"id="pphone"maxlength="30" ng-model="Addre.Tel" placeholder="请输入收货人联系电话"/>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right">
+                <input id="zippp" type="tel" ng-model="Addre.Zip" placeholder="请输入邮编"/>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+        <button class=" button saveAll light saveButton" type="submit" style="width:30%;border-radius:4px" >保存</button>
+
+    </ion-content>
+</form>
+</ion-view>

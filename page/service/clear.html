@@ -1,0 +1,27 @@
+<div class="bar header" style="height: 44px">
+        <a href="#/page/service" class="button button-clear icon ion-chevron-left button-light"></a>
+        <h2 class="title light">{{Name}}</h2>
+    </div>
+    <div class="bar subheader" style="top:44px;height:44px;">
+        在此，我们只收取预定金，所产生的具体费用请与服务提供商结算。
+    </div>
+<ion-view hide-nav-bar="true" hide-tabs="true">
+        <ion-content  class=" content-clear" no-header="true" style="top:88px;background-color: #eeeeee">
+            <p class="service1">选择服务</p>
+            <div class="selectService">
+             <ul>
+             	<li ng-repeat="row in items" class=" server_style" id="li{{row.Id}}"  ng-click="selectService(row.Id)">
+             		<h4>{{row.Name}}</h4>
+                    <p>{{row.Detail}}</p>
+                    <hr/>
+                    <div class="line">需付定金：￥{{row.Price}}</div>
+             	</li>
+
+
+             </ul>
+            </div>
+            <button class="button  light btn btn_width" ng-click="buysome()">立即预约</button>
+        </ion-content>
+            
+        </div>
+    </ion-view>

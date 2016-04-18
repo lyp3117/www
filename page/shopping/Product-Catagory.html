@@ -1,0 +1,42 @@
+﻿<script type="text/javascript">
+    function searchPro() {
+        var x = document.getElementById('search').value;
+        $state.go("page.search_product", {productName: x});
+    }
+</script>
+<div class="bar  bar-light padding " style="height: 44px;border-bottom: solid 1px silver">
+    <button class="button  button-icon icon ion-chevron-left color-silver"
+            ng-click="return()"></button>
+    <h1 class="title font-title">分 类</h1>
+</div>
+<div class="bar  bar-light " style="top: 44px">
+    <div class=" item-input icon-search border-input input-size">
+        <input type="text" onblur="searchPro()" class="list-title " placeholder="寻找你喜欢的宝贝">
+    </div>
+</div>
+<ion-scroll zooming="true" direction="y" class=" category-tab stable-bg " style="height: 80%; overflow-y:scroll ;">
+    <ul>
+        <li ng-repeat="item in catelist" class="cur" id="{{item.Id}}" ng-class="{'active': tabIndex==item.Id}"
+            ng-click="category(item.Id)"><a>{{item.label}}</a>
+        </li>
+    </ul>
+</ion-scroll>
+<ion-view hide-tabs="true" hide-nav-bar="true">
+    <ion-content class="content " style="top: 98px">
+
+        <div class="category-content padding" ng-repeat="itemtail in catelist"
+             ng-show="tabIndex==itemtail.Id">
+
+            <div class="branchList " ng-repeat="item1 in itemtail.children">
+                <h4 ui-sref="page.product-list({id:item1.Id,name:item1.label})">{{item1.label}}</h4>
+                <ul>
+                    <li ng-repeat="item2 in item1.product" ui-sref="page.product-detail({id:item2.Id})">
+                        <img ng-src="{{Img+item2.MainImg}}@67w_67h_70q" alt=""/>
+
+                        <p>{{item2.Name}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

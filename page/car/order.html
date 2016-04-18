@@ -1,0 +1,60 @@
+    <a href="#/page/car" class="button button-clear icon ion-chevron-left button-dark"></a>
+<div class="bar header" style=" margin-top:-47px">
+    <a ng-click="return()" class="button button-clear icon ion-chevron-left button-dark" style='color:#fff'></a>
+    <h2 class="title light">确认订单</h2>
+</div>
+<ion-view hide-nav-bar="true" hide-tabs="true">
+    <ion-content no-header="true" style="top:30px;background-color: #f9f9f9;">
+        <ion-list>
+            <!--<ion-item class=" item-icon-left item-stable bar">-->
+            <!--<a href="#/page/car" class="button button-clear icon ion-chevron-left button-dark"></a>-->
+            <!--<h2 class=" title">确认订单</h2>-->
+            <!--</ion-item >-->
+
+            <ion-item class="item item-icon-left item-icon-right" >
+                <i class="icon icon-addressManage" style="color: #3b4043;font-size: 24px;"></i>
+                <h2 style="color: #122733">收货人:{{address.Linkman}} <span style="float:right">{{address.Tel}}</span></h2>
+                <p style="white-space: normal;color: #122733">收货地址：{{address.Address}}</p>
+                <a class="icon ion-ios-arrow-right"ui-sref="page.selectAddress({productId:productId,count:count})"style="color: #999999;"></a>
+            </ion-item>
+            <ion-item class="item-thumbnail-left" style="background-color: #f5f5f5" ng-repeat="list in model">
+                <img ng-src="{{'http://img.iyookee.cn/' + list.image +'@80w_80h_70q_2e'}}" alt=""/>
+                <h2 style="white-space: normal">{{list.name}}</h2>
+                <p><br></p>
+                <div>
+                    <div style="float:left"><span class="red">{{list.price| currency:'￥'}}</span></div>
+                    <div style="float:right"><span>x{{list.count}}</span></div>
+                </div>
+            </ion-item>
+            <ion-item class="item item-light">
+                <h2>配送费 <span style="float:right">免配送费</span></h2>
+
+            </ion-item>
+            <ion-item class="item item-light" style="border-bottom-width: 5px;">
+                <h2>配送时间 <span style="float:right">付款后，预计30分钟送达</span></h2>
+
+            </ion-item>
+
+        </ion-list>
+
+        <label class="item-input item-textarea item-stacked-label" style="background-color: #fff;padding-bottom: 20px;padding-right: 15px;">
+            <span class="input-label" style="color: #000;margin-bottom: 10px;" >备注</span>
+            <textarea name="remark" id="remark" cols="30" rows="10"
+                      placeholder="请在此输入备注信息"
+                      style="border: 1px solid #dedede;background-color:#f8f8f8 "
+                      ng-model="$parent.remark"></textarea>
+        </label>
+        <!--<div class="submit">-->
+            <!--<div style="float:right">-->
+                <!--合计<span class="red">{{CountPrice| currency:'￥'}}</span>-->
+                <!--<button  class="button light" ng-click="submit()">确认</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    </ion-content>
+    <div class="submit">
+        <div style="float:right">
+            合计<span class="red">{{CountPrice| currency:'￥'}}</span>
+            <button  class="button light" ng-click="submit()">确认</button>
+        </div>
+    </div>
+</ion-view>

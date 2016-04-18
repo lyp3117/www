@@ -1,0 +1,65 @@
+<ioc-view hide-nav-bar="true" hide-tabs="false">
+    <ion-content no-header="true">
+        <div class="head_print">
+            <div class="headimg">
+                <img src="page/me/img/qq.jpg"/>
+            </div>
+            <div class="top" id="previvew">
+                <img ng-src="{{oldMem.Thumbnail}}" onerror="javascript:this.src='page/me/img/head.png'" class="headpic"  />
+    
+                <p class="username">{{oldMem.UserName}}</p>
+            </div>
+            <div id="sayGreating">
+              
+            </div>
+        </div>
+        <div class="list">
+            <div class="item item-icon-left item2" style="margin-top:35px">
+                <i class="icon ion-clipboard" id="myclip"></i>
+
+                <a ui-sref="page.myOrder({tabIndex: 1})"><h2>我的订单<span>查看全部订单 ></span>  </h2></a>
+
+                <div class="row myclipul">
+                    <div class="col yuanquan" ui-sref="page.myOrder({tabIndex: 0})"><i class="ion-card"></i>
+
+                        <p>待付款</p><span ng-show="orderNum.waitNum">{{orderNum.waitNum}}</span></div>
+                    <div class="col yuanquan" ui-sref="page.myOrder({tabIndex: 1})"><i class="ion-ios-box-outline"><p>
+                        待发货</p></i><span ng-show="orderNum.deliverNum">{{orderNum.deliverNum}}</span></div>
+                    <div class="col yuanquan" ui-sref="page.myOrder({tabIndex: 2})"><i class="ion-android-bus"><p>
+                        待收货</p></i><span ng-show="orderNum.takeNum">{{orderNum.takeNum}}</span></div>
+                    <div class="col yuanquan" ui-sref="page.myOrder({tabIndex: 3})"><i
+                            class="ion-android-checkbox-outline"><p>待评价</p></i><span ng-show="orderNum.evaluateNum">{{orderNum.evaluateNum}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-icon-left item2" style="top: 20px;">
+                <i class="icon ion-settings" id="mysever"></i>
+
+                <a ui-sref="page.myService({tabIndex: 5})"><h2>我的服务<span>查看全部订购的服务 ></span> </h2></a>
+
+                <div class="row mysever">
+                    <div class="col yuanquanR" ui-sref="page.myService({tabIndex: 5})"><i class="ion-card"><p>待接件</p>
+                    </i><span ng-show="TotalCount">{{TotalCount}}</span></div>
+                    <div class="col yuanquanR" ui-sref="page.myService({tabIndex: 6})"><i class="ion-ios-box-outline"><p>办理中</p>
+                    </i><span ng-show="totaling">{{totaling}}</span></div>
+
+                </div>
+            </div>
+            <div class="item item-icon-left item2" style="top: 40px;">
+                <a href="#/page/me/personalData"><i class="icon ion-ios-person-outline" id="myinfo"></i>
+
+                <h2>个人资料<span>查看我的资料 ></span> </h2></a>
+            </div>
+            <div class="item item-icon-left item2" style="top: 60px;">
+                <a href="#/page/me/addressAdm"><i class="icon ion-android-wifi" id="myaddress"></i>
+
+                <h2>地址管理<span>查看我的地址 ></span> </h2></a>
+            </div>
+            <div class="item item-icon-left item2" style="top: 80px">
+                <i class="icon ion-social-vimeo" id="U"></i>
+
+                <h2>关于U+</h2>
+            </div>
+        </div>
+    </ion-content>
+</ioc-view>

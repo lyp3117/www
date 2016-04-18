@@ -1,0 +1,52 @@
+<div class="bar header" style="height: 44px">
+    <button class="button  button-icon icon ion-chevron-left color-silver"
+            ui-sref="page.shopping"></button>
+    <a class="button  button-icon icon icon-fuwuanniu" style="color: #fff;" ui-sref="page.service"></a>
+    <span class="selectArea" ng-click="showSelectBox()" ng-hide="showSelect">云南省</span>
+    <!--<label class=" item-select select-header" ng-hide="showSelect">-->
+    <!--<select>-->
+    <!--<option>金尚俊园A座</option>-->
+    <!--<option >CSS</option>-->
+    <!--<option>JavaScript</option>-->
+    <!--</select>-->
+    <!--</label>-->
+
+
+    <a class="button button-icon icon icon-search search" ng-click="showInput()"></a>
+    <a class="button button-icon icon ion-navicon-round round" ng-click="go('index.html#/page/shopping/Product-Catagory')"></a>
+    <input class="header-input" ng-model="searchname" ng-class="{'header-input-show':isShow}" id="search" type="text" placeholder="" style="border: 1px solid #fff; height: 70%;z-index: 0;padding-left: 10px;color: #fff">
+</div>
+<ion-view>
+    <ion-content class="scroll-content" no-header="false" style="top:44px">
+<ion-list>
+    <!--<ion-item ng-repeat="item in productList"  class="row" ui-sref="page.product-detail({id:item.Id})">-->
+        <!--<div class="product col col-25">-->
+            <!--<img ng-src="http://img.iyookee.cn/{{item.MainImg}}@67w_67h_70q" alt="" />-->
+        <!--</div>-->
+        <!--<div class="col col-75">-->
+            <!--<h2 style="white-space: normal" class="font-title">{{item.Name}}</h2>-->
+            <!--<p style="white-space: normal;color: #DE6C2C">{{item.Subtitte}}</p>-->
+            <!--<p >{{item.Ad1}}</p>-->
+            <!--<p><span class="p-price">￥{{item.Price}}</span><span class="float-right">已有{{item.Owner}}人抢购</span></p>-->
+        <!--</div>-->
+    <!--</ion-item >-->
+    <ion-item class="row" ng-repeat="item in productList" >
+        <div class="product col col-25" ui-sref="page.product-detail({id:item.Id})">
+            <img ng-src="http://img.iyookee.cn/{{item.MainImg}}@67w_67h_70q" style="width: 67px;height: 67px" alt=""/>
+        </div>
+        <div class="col col-75">
+            <h2 style="white-space: normal" class="font-title">{{item.Name}}</h2>
+
+            <p style="white-space: normal;color: #DE6C2C">{{item.Subtitte}}</p>
+
+            <p>{{item.Ad1}}</p>
+
+            <p><span class="p-price">￥{{item.Price}}</span><span style="float: right">已有{{item.Owner}}人抢购</span>
+            </p>
+        </div>
+    </ion-item>
+</ion-list>
+        <ion-infinite-scroll on-infinite="loadProduct();" ng-if="hasmore">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,108 @@
+﻿<div class=" header bar">
+	<a class="button  button-icon icon icon-fuwuanniu btn_right" ui-sref="page.service"></a>
+	<span class="selectArea" ng-click="showSelectBox()" ng-hide="showSelect">{{area}}</span>
+	<a class="button button-icon icon icon-search search" ng-click="showInput()"></a>
+    <a class="button button-icon icon ion-navicon-round btn_left" ui-sref="page.Product-Catagory"></a>
+    <input class="header-input" ng-model="searchname" ng-class="{'header-input-show':isShow}" id="search" type="text" placeholder="" style="border:1px solid #fff; height:70%;z-index:0;padding-left: 10px;color:#fff">
+</div>
+<div class="bar bar-subheader bar-light selectBox" ng-class="{'addselectBox':selectBox}">
+	<i class="ion ion-ios-close-outline" ng-click="closeSelectBox()" style="font-size: 30px;"></i>
+    <div class="fuji">
+	<ul class="list">
+		<li class="item" ng-repeat="item in addrss" ng-click="click(item.Name,item.Id)">{{item.Name}}</li>
+	</ul>
+    </div>
+    <div class="ziji">
+    <ul style="margin-left: 50px">
+        <li style="float: left ;width:70px; height: 40px;  margin-top: 10px;" ng-repeat="item in zilei">
+                <button style="border: none; background-color: inherit" ng-click="huan(item.Name)">{{item.Name}}</button>
+            </li>
+    </ul>
+    </div>
+</div>
+<ion-view view-title="优·购物" hide-tabs="false" hide-nav-bar="true" style='margin-top:44px'>
+	<ion-content class="scroll-content stable-bg" no-header="true" style="background:rgb(235,235,235)">
+	<!--	<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>-->
+		<ion-slide-box auto-play="true" does-continue="true" slide-interval=2000 show-pager="true" ng-if="content">
+			<ion-slide ng-repeat="item in content">
+				<div class="box">
+                    <img ng-if="item" ng-src="http://img.iyookee.cn/{{item.TitleImg}}@320w_160h_70q_2e"
+                         class="img-full">
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+		<ion-infinite-scroll ng-if="moredata" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+		<div class=" bg-yellow">
+			<ul style="overflow: hidden;" id="menu_list">
+                <li ng-repeat="item in ServiceList" class="tab-item listMenu" style="display:block">
+                    <i ui-sref="{{item.Link}}({name:item.Name})" class="icon {{item.Class}} light circle" style="height: 50px"></i>
+					<p class="font-8">{{item.Name}}</p>
+				</li> 
+			</ul>
+                <div class="text_word"><div>优<span >·</span>服务</div></div>
+                <div id="more_right" ng-if='ServiceList.length > 5 ' ng-click='changeMore()'>
+                  <div class="ico_more">
+                  <span></span><span></span><span></span></div>
+                  <div class="more_text">更多</div>
+                </div>
+                <div id="return" ng-click='clickReturn()'>
+                  <span></span><span></span>
+                </div>
+			</div>
+		<div class="stable-bg padding" style="background:rgb(235,235,235)" >
+			<div class="item item-light item-borderless" style="margin-bottom: 10px">
+				<span class="title assertive font-11"><strong>| 爆款套餐</strong>&nbsp;| 新品上架</span>
+			</div>
+            <div id="bigImg" class="item item-image " style="overflow: inherit;">
+                <img ng-src="http://img.iyookee.cn/{{list.MainImg}}@400w_140h_70q_2e"
+                     ui-sref="page.product-detail({id:list.Id})">
+				<div class="p-location">
+					<div class="p-invisible">{{list.Owner}}人已抢购</div>
+				</div>
+				<div class="activity padding text-left" >
+                    <div class="color-white">{{list.Name}}</div>
+                    <p><span class="p-price" style="font-size: 1em">{{list.Price | currency:'￥'}}</span>
+                    <div ng-show="list.OldPrice">
+                        /
+                        <del style="font-size: 0.6em" class="color-white">折扣前{{list.OldPrice|currency:'￥'}}</del>
+                    </div>
+					</p>
+					<i class="icon icon-gouwuche shop-cart" ng-click="AddCart1(this)" style="color:#ffcc00"></i>
+					<br>
+					<button class=" energized-bg none-border  " ng-click="buysome(list.Id)" style="margin-left:30%">
+						立即购买
+					</button>
+				</div>
+			</div>
+			<ul style="z-index:0">
+				<li style="width:49%;float:left;margin-right: 1%;position: relative ;background:#fff;margin-top:8px" ng-repeat="row in items">
+					<div class="">
+                        <img ng-if="row" ng-src="http://img.iyookee.cn/{{row.MainImg}}@187w_140h_70q_2e"
+                             ui-sref="page.product-detail({id:row.Id})">
+						<div class="s-location">
+							<div class="p-invisible">{{row.Owner}}人已抢购</div>
+						</div>
+						<div class="padding" >
+                            <p style="font-size:1.1em">{{row.Name}}</p>
+                            <p>
+                                <span class="p-price" style="font-size: 1em">{{row.Price|currency:'￥'}}</span>
+                                <span ng-show="row.OldPrice">
+                                    /
+                                    <del style="font-size: 0.6em;">折扣前{{row.OldPrice}}</del>
+                                </span>
+							</p>
+							<p>
+                                <button class="button  button-small  button_myself " ng-click="buysome(row.Id)">
+                                    立即购买
+                                </button>
+                                <i class="icon icon-gouwuche icons " style="float: right;font-size: 30px;color:rgb(120, 127, 112)"
+                                   ng-click="AddCart(this,$event)"></i></p>
+						</div>
+                     </div>
+				</li>
+			</ul>
+		</div>
+        <ion-infinite-scroll ng-if="loadmore" on-infinite="load_more();">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

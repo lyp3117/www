@@ -1,0 +1,14 @@
+<div class="bar header" style="background-color: #f9f9f9">
+    <a ng-click="return()" class="button button-clear icon ion-chevron-left button-light"></a>
+    <h2 class="title light" style="color: #000;">管理收货地址</h2>
+</div>
+<ion-view hide-nav-bar="true" hide-tabs="true" >
+    <ion-content no-header="true" style="top:30px;padding:0;background-color: #f9f9f9" class="stable-bg">
+        <ion-list>
+            <ion-item ng-repeat="chat in listCounty" type="item-text-wrap" ui-sref="page.newAddress({id:chat.Id,name:name+chat.Name})">
+                {{chat.Name}}
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>
